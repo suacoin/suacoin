@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2018 The Suacoin developers
+// Copyright (c) 2018-2022 The Suacoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,7 +18,23 @@ class CReserveKey;
 #include "json/json_spirit_writer_template.h"
 #include "json/json_spirit_utils.h"
 
+#include <boost/asio.hpp>
+#include <boost/asio/ssl.hpp>
+
 #include "util.h"
+
+// Boost Support for 1.70+
+#if BOOST_VERSION >= 107000
+   #define GetIOService(s) ((boost::asio::io_context&)(s).get_executor().context())
+   #define GetIOServiceFromPtr(s) ((boost::asio::io_context&)(s->get_executor().context())) // this one
+   typedef boost::asio::io_context ioContext;
+
+#else
+   #define GetIOService(s) ((s).get_io_service())
+   #define GetIOServiceFromPtr(s) ((s)->get_io_service())
+   typedef boost::asio::io_service ioContext;
+#endif
+
 
 // HTTP status codes
 enum HTTPStatusCode
