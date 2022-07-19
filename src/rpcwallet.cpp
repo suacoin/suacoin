@@ -23,14 +23,14 @@ static CCriticalSection cs_nWalletUnlockTime;
 std::string HelpRequiringPassphrase()
 {
     return pwalletMain->IsCrypted()
-        ? "\nrequires wallet passphrase to be set with walletpassphrase first"
+        ? "\nrequires valid wallet passphrase to be set with walletpassphrase first"
         : "";
 }
 
 void EnsureWalletIsUnlocked()
 {
     if (pwalletMain->IsLocked())
-        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
+        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the correct wallet passphrase with walletpassphrase first.");
 }
 
 void WalletTxToJSON(const CWalletTx& wtx, Object& entry)
@@ -1570,4 +1570,3 @@ Value listlockunspent(const Array& params, bool fHelp)
 
     return ret;
 }
-
