@@ -1,5 +1,5 @@
 Building Suacoin
 
-See doc/build-*.txt for instructions on building suacoind,
-the intended-for-services, no-graphical-interface, reference
-implementation of Suacoin.
+See doc/build-*.txt for instructions on building suacoind node,
+the intended-for-services like exchanges and miners,
+no-graphical-interface, reference implementation of Suacoin.

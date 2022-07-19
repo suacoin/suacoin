@@ -51,7 +51,7 @@ You have a much greater chance of earning coins (and faster), since the blockcha
 is smaller (started only in december 2018). With BTC there is already few years and
 many blocks completed, so this means the difficulty and hardware required to mine
 is much more expensive. It's compatible with Bitcoin mining SHA-256 equipment and
-pool software.
+pool software. After block 500,000 we will move to BLAKE 3 ALGO instead of SHA-256.
 
 How much is worth one SUA?
 --------------------------
