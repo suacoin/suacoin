@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2018-2022 The Suacoin developerss
+// Copyright (c) 2018-2022 The Suacoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef SUACOIN_MAIN_H
@@ -609,6 +609,7 @@ public:
         // Large (in bytes) low-priority (new, small-coin) transactions
         // need a fee.
         return dPriority > COIN * 144 / 250;
+
     }
 
     int64 GetMinFee(unsigned int nBlockSize=1, bool fAllowFree=true, enum GetMinFee_mode mode=GMF_BLOCK) const;

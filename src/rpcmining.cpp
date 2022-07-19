@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2018-2022 The Suacoin developerss
+// Copyright (c) 2018-2022 The Suacoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -216,8 +216,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
             "  \"sigoplimit\" : limit of sigops in blocks\n"
             "  \"sizelimit\" : limit of block size\n"
             "  \"bits\" : compressed target of next block\n"
-            "  \"height\" : height of the next block\n"
-            "See https://www.suacoin.com/pages/faq.html#BIP_0022 for full specification.");
+            "  \"height\" : height of the next block");
 
     std::string strMode = "template";
     if (params.size() > 0)
@@ -350,8 +349,7 @@ Value submitblock(const Array& params, bool fHelp)
         throw runtime_error(
             "submitblock <hex data> [optional-params-obj]\n"
             "[optional-params-obj] parameter is currently ignored.\n"
-            "Attempts to submit new block to network.\n"
-            "See https://www.suacoin.com/pages/faq.html#BIP_0022 for full specification.");
+            "Attempts to submit new block to network.");
 
     vector<unsigned char> blockData(ParseHex(params[0].get_str()));
     CDataStream ssBlock(blockData, SER_NETWORK, PROTOCOL_VERSION);

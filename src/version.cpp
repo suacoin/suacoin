@@ -1,12 +1,12 @@
 // Copyright (c) 2012 The Bitcoin developers
-// Copyright (c) 2018-2022 The Suacoin developerss
+// Copyright (c) 2018-2022 The Suacoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <string>
 
 #include "version.h"
 
-const std::string CLIENT_NAME("Dabaw");
+const std::string CLIENT_NAME("Qudra");
 
 // Client version number
 #define CLIENT_VERSION_SUFFIX   "-beta"
