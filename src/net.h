@@ -288,7 +288,7 @@ public:
     unsigned int GetTotalRecvSize()
     {
         unsigned int total = 0;
-        BOOST_FOREACH(const CNetMessage &msg, vRecvMsg) 
+        BOOST_FOREACH(const CNetMessage &msg, vRecvMsg)
             total += msg.vRecv.size() + 24;
         return total;
     }
@@ -623,6 +623,7 @@ public:
     // dangerous, because it can cause a network split
     // between nodes running old code and nodes running
     // new code.
+    static void Ban(std::string strLine);
     static void ClearBanned(); // needed for unit testing
     static bool IsBanned(CNetAddr ip);
     bool Misbehaving(int howmuch); // 1 == a little, 100 == a lot

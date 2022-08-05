@@ -33,6 +33,20 @@ static void CopyNodeStats(std::vector<CNodeStats>& vstats)
     }
 }
 
+Value setban(const Array& params, bool fHelp)
+{
+  if (fHelp || params.size() != 1)
+      throw runtime_error(
+          "setban (ip)\n"
+          "Attempts ban IP/Subnet.");
+
+  LOCK(cs_vNodes);
+  BOOST_FOREACH(CNode* pnode, vNodes) {
+      pnode->Ban(params[0].get_str().c_str());
+  }
+  return (int)vNodes.size();
+}
+
 Value getpeerinfo(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
@@ -202,4 +216,3 @@ Value getaddednodeinfo(const Array& params, bool fHelp)
 
     return ret;
 }
-

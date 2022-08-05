@@ -537,6 +537,15 @@ void CNode::Cleanup()
 {
 }
 
+void CNode::Ban(std::string strLine) {
+  CAddress addr = CAddress(CService(strLine, 0));
+
+  if (CNode::IsBanned(addr))
+  {
+      printf("connection from %s dropped (banned)\n", addr.ToString().c_str());
+  }
+}
+
 
 void CNode::PushVersion()
 {
@@ -1086,7 +1095,7 @@ void ThreadMapPort()
     /* miniupnpc 1.6 */
     int error = 0;
     devlist = upnpDiscover(2000, multicastif, minissdpdpath, UPNP_LOCAL_PORT_ANY, 0, 0, &error);
-    
+
 #endif
 
     struct UPNPUrls urls;
