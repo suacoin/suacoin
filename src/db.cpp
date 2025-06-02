@@ -581,4 +581,3 @@ bool CAddrDB::Read(CAddrMan& addr)
 
     return true;
 }
-

@@ -1,5 +1,5 @@
 Copyright (c) 2009-2013 The Bitcoin developers
-Copyright (c) 2018-2022 The Suacoin Developers
+Copyright (c) 2018-2025 The Suacoin Developers
 
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -11,7 +11,7 @@ UBUNTU BUILD NOTES
 
 To Build
 -------------------------
-Assuming Ubuntu 20
+Assuming Ubuntu 22.04
 
 Preparation
 -----------
@@ -36,21 +36,14 @@ wget https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.1.5.tar.gz
 tar xvfz libressl-3.1.5.tar.gz
 cd libressl-3.1.5
 ./configure --prefix=/usr/local/libressl --with-openssldir=/usr/local/libressl && make && sudo make install
-sudo rm -rf /usr/include/openssl/*
-sudo cp -rf include/openssl/* /usr/include/openssl/
-sudo cp -rf lib/* /usr/lib/x86_64-linux-gnu
-cd ..
 git clone https://github.com/suacoin/suacoin.git
 cd suacoin/src/
 make -f makefile.unix
 sudo cp suacoind /usr/bin/
-
-
-
+export LD_LIBRARY_PATH=/usr/local/libressl/lib:$LD_LIBRARY_PATH
 
 Run Suacoin Daemon
 ------------------
 ```
 suacoind
 ```
-
